@@ -6,7 +6,7 @@ import Slides from '../components/Slides';
 
 const SLIDE_DATA = [
   { text: 'Welcome to PhotoSwipe', color: '#03A9F4'},
-  { text: 'Like and Save Instagram Photos', color: '#009688'},
+  { text: 'Swipe and Save Photos', color: '#009688'},
   { text: 'Search, then swipe away!', color: '#03A9F4'}
 ];
 
@@ -16,7 +16,7 @@ class WelcomeScreen extends Component {
   async componentWillMount() {
     let token = await AsyncStorage.getItem('fb_token');
     if (token) {
-      this.props.navigation.navigate('search');
+      this.props.navigation.navigate('map');
     } else {
       this.setState({ token: false });
     }
