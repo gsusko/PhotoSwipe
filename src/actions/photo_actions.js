@@ -3,7 +3,8 @@ import {
   UPDATE_SEARCH_TERM,
   FETCH_PHOTOS,
   LIKE_PHOTO,
-  DELETE_ONE_PHOTO
+  DELETE_ONE_PHOTO,
+  DELETE_ALL_LIKED_PHOTOS
 } from './types';
 
 import { FLICKR_KEY } from '../../config';
@@ -45,3 +46,9 @@ export const deleteOneLikedPhoto = index => {
     payload: index
   }
 };
+
+export const clearLikedJobs = () => {
+  return {
+    type: DELETE_ALL_LIKED_PHOTOS
+  }
+}
