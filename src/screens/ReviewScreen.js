@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Platform, ScrollView, Image, CameraRoll, Alert } from 'react-native';
 import { Card, Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class ReviewScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -28,6 +29,10 @@ class ReviewScreen extends Component {
   saveToCameraRoll(photo) {
     CameraRoll.saveToCameraRoll(photo.url_l)
       .then(Alert.alert('Success', 'Photo added to camera roll!'))
+  }
+
+  onDeletePress(index) {
+    this.props.deleteOneLikedPhoto(index);
   }
 
   renderJobs() {
@@ -59,7 +64,7 @@ class ReviewScreen extends Component {
                   name="delete-forever"
                   color="red"
                   size={30}
-                  //onPress={() => this.onDeletePress(index)}
+                  onPress={() => this.onDeletePress(index)}
                 />
               </View>
             </View>
@@ -105,4 +110,4 @@ mapStateToProps = ({ likedPhotos }) => {
   };
 };
 
-export default connect(mapStateToProps)(ReviewScreen);
+export default connect(mapStateToProps, actions)(ReviewScreen);
