@@ -6,7 +6,7 @@ class ReviewScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     return {
-      title: 'Review Jobs',
+      title: 'Liked Photos',
       headerRight: (
         <Button
           title="Settings"

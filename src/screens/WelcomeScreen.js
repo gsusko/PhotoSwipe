@@ -7,7 +7,7 @@ import Slides from '../components/Slides';
 const SLIDE_DATA = [
   { text: 'Welcome to PhotoSwipe', color: '#03A9F4'},
   { text: 'Swipe and Save Photos', color: '#009688'},
-  { text: 'Search, then swipe away!', color: '#03A9F4'}
+  { text: 'Find a location, search for a topic, then swipe away!', color: '#03A9F4'}
 ];
 
 class WelcomeScreen extends Component {

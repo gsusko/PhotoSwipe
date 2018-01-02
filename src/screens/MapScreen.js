@@ -50,10 +50,9 @@ class MapScreen extends Component {
 
   onButtonPress = () => {
     let { latitude, longitude } = this.state.region;
-    this.props.fetchPhotos(latitude, longitude, this.props.term);
-    // this.props.fetchJobs(this.state.region, this.props.term, () => {
-    //   this.props.navigation.navigate('deck');
-    // });
+    this.props.fetchPhotos(latitude, longitude, this.props.term, () => {
+      this.props.navigation.navigate('deck');
+    });
   }
 
   render() {
@@ -78,7 +77,7 @@ class MapScreen extends Component {
             autoCorrect={false}
             containerStyle={styles.searchContainerStyle}
             onChangeText={value => this.props.updateSearch(value)}
-            placeholder='What type of job are you looking for?'
+            placeholder='Dogs, Warriors, Food, Etc...'
             color="black"
             inputStyle={styles.inputStyle}
           />
