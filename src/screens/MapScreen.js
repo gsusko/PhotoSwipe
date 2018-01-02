@@ -119,8 +119,8 @@ const styles = {
 
 mapStateToProps = (state) => {
   return {
-    term: state.jobs.term
+    term: state.photos.term
   };
 }
 
-export default connect(null, actions)(MapScreen);
+export default connect(mapStateToProps, actions)(MapScreen);

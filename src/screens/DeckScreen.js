@@ -18,7 +18,9 @@ class DeckScreen extends Component {
   }
 
   renderCard(photo) {
-    const { farm, id, secret, server, title } = photo;
+    let { farm, id, secret, server, title, datetaken } = photo;
+
+    title = title || 'No Title';
 
     return (
       <Card
@@ -33,7 +35,7 @@ class DeckScreen extends Component {
           />
         </View>
         <View style={styles.detailWrapper}>
-          <Text>Date Taken: </Text>
+          <Text>Date Taken: {datetaken}</Text>
         </View>
       </Card>
     );
@@ -55,7 +57,7 @@ class DeckScreen extends Component {
 
   render() {
     return (
-      <View style={{ marginTop: 10 }}>
+      <View style={{ marginTop: 15 }}>
         <Swipe
           data={this.props.photos}
           renderCard={this.renderCard}
@@ -72,6 +74,11 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     height: 45
+  },
+  detailWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 10
   }
 };
 
