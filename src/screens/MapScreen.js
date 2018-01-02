@@ -49,7 +49,8 @@ class MapScreen extends Component {
   }
 
   onButtonPress = () => {
-    this.props.fetchPhotos(this.state.region, this.props.term);
+    let { latitude, longitude } = this.state.region;
+    this.props.fetchPhotos(latitude, longitude, this.props.term);
     // this.props.fetchJobs(this.state.region, this.props.term, () => {
     //   this.props.navigation.navigate('deck');
     // });
