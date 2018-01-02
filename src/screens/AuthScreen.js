@@ -6,6 +6,7 @@ import * as actions from '../actions';
 class AuthScreen extends Component {
   componentDidMount() {
     this.props.facebookLogin();
+    this.onAuthComplete(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -14,7 +15,7 @@ class AuthScreen extends Component {
 
   onAuthComplete(props) {
     if (props.token) {
-      this.props.navigation.navigate('search');
+      this.props.navigation.navigate('map');
     }
   }
 
