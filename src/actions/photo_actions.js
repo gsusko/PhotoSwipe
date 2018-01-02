@@ -17,9 +17,9 @@ export const updateSearch = (value) => {
 export const fetchPhotos = (lat, long, term, cb) => async dispatch => {
   term = term || '';
   try {
-    let photoData = await axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${FLICKR_KEY}&sort=interestingness-des&text=${term}&lat=${lat}&lon=${long}&per_page=20&extras=date_taken&format=json&nojsoncallback=1`);
+    let photoData = await axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${FLICKR_KEY}&sort=interestingness-des&text=${term}&lat=${lat}&lon=${long}&per_page=20&extras=date_taken,description,url_l&format=json&nojsoncallback=1`);
     let photos = photoData.data.photos.photo;
-
+    console.log(photos);
     dispatch({
       type: FETCH_PHOTOS,
       payload: photos
