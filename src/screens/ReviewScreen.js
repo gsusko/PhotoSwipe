@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Platform } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
+import { connect } from 'react-redux';
 
 class ReviewScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -15,6 +16,9 @@ class ReviewScreen extends Component {
           color="rgba(0, 122, 255, 1)"
         />
       ),
+      tabBarIcon: ({ tintColor }) => {
+        return <Icon name="favorite" size={30} color={tintColor} />;
+      },
       style: {
         marginTop: Platform.OS === 'android' ? 24 : 0
       }
@@ -22,6 +26,7 @@ class ReviewScreen extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <View>
         <Text>Review Screen</Text>
@@ -32,7 +37,12 @@ class ReviewScreen extends Component {
       </View>
     );
   }
-
 }
 
-export default ReviewScreen;
+mapStateToProps = ({ likedPhotos }) => {
+  return {
+    likedPhotos
+  };
+};
+
+export default connect(mapStateToProps)(ReviewScreen);

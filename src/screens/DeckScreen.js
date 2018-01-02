@@ -62,6 +62,7 @@ class DeckScreen extends Component {
           data={this.props.photos}
           renderCard={this.renderCard}
           renderNoMoreCards={this.renderNoMoreCards.bind(this)}
+          onSwipeRight={photo => {this.props.likePhoto(photo)}}
           keyProp="id"
         />
       </View>
