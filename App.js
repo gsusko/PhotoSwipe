@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import AuthScreen from './src/screens/AuthScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
-import SearchScreen from './src/screens/SearchScreen';
+import MapScreen from './src/screens/MapScreen';
 import DeckScreen from './src/screens/DeckScreen';
 import ReviewScreen from './src/screens/ReviewScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
@@ -18,7 +18,7 @@ export default class App extends React.Component {
       auth: { screen: AuthScreen },
       main: {
         screen: TabNavigator({
-          search: { screen: SearchScreen },
+          map: { screen: MapScreen },
           deck: { screen: DeckScreen },
           review: {
             screen: StackNavigator({
